@@ -1,0 +1,23 @@
+package com.baymax.tweetssearchapp.home_fragement.data
+
+import androidx.lifecycle.LiveData
+import androidx.room.*
+
+@Dao
+interface TweetsDao {
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun upsert(data: Tweet)
+
+    @Transaction
+    fun updateRecord(data: Tweet) {
+        deleteAllRecords()
+        upsert(data)
+    }
+
+    @Query("Select * from Tweets")
+    fun getAllRecords():LiveData<List<Tweet>>
+
+    @Query("DELETE from Tweets")
+    fun deleteAllRecords()
+
+}
