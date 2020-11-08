@@ -11,8 +11,11 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.baymax.tweetssearchapp.R
 import com.baymax.tweetssearchapp.home_fragement.data.Tweet
+import com.baymax.tweetssearchapp.utils.exceptions.NoConnectivityException
 import com.baymax.weatherforcast.ViewModel.HomeFramentViewModel
 import com.baymax.weatherforcast.ViewModel.HomeFramentViewModelFactory
+import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -41,14 +44,18 @@ class HomeFragment : Fragment(), KodeinAware{
     }
 
     private fun bindUi() = lifecycleScope.launch(Dispatchers.Main) {
-        val tweets =viewModel.tweets
-        tweets.observe(requireActivity(), Observer {
-            adapter = TweetsAdapter(it as ArrayList<Tweet>)
-            linearLayoutManager = LinearLayoutManager(context)
-            recycler_view.layoutManager = linearLayoutManager
-            recycler_view.adapter = adapter
-            progressBar.visibility = View.GONE
-        })
+        try{
+            val tweets = viewModel.tweets
+            tweets.observe(requireActivity(), Observer {
+                adapter = TweetsAdapter(it as ArrayList<Tweet>)
+                linearLayoutManager = LinearLayoutManager(context)
+                recycler_view.layoutManager = linearLayoutManager
+                recycler_view.adapter = adapter
+                progressBar.visibility = View.GONE
+            })
+        }catch (e:NoConnectivityException){
+            Snackbar.make(root,"No internet connection",Snackbar.LENGTH_LONG)
+        }
     }
 
     override fun onCreateView(inflater: LayoutInflater,

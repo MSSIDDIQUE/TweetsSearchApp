@@ -2,6 +2,7 @@ package com.baymax.weatherforcast.ViewModel
 
 import androidx.lifecycle.*
 import com.baymax.weatherforcast.Model.Repository.Repository
+import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
 
 class HomeFramentViewModel(private val repo: Repository):ViewModel() {
@@ -12,7 +13,6 @@ class HomeFramentViewModel(private val repo: Repository):ViewModel() {
             emitSource(data)
         }
     }
-
 
     init {
         text.value = ""

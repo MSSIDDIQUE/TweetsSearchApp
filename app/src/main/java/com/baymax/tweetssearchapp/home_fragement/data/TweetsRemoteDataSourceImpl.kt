@@ -22,7 +22,7 @@ class TweetsRemoteDataSourceImpl(
             }
         }
         catch (e: NoConnectivityException){
-            Log.e("Connectivity","No internet connection.",e)
+            _downlaodedTweets.postValue(Resource.error("Something Went Wrong", null))
         }
     }
 

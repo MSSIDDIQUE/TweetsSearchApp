@@ -1,6 +1,5 @@
 package com.baymax.weatherforcast.Model.Repository
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import com.baymax.tweetssearchapp.home_fragement.data.Tweet
 import com.baymax.tweetssearchapp.home_fragement.data.TweetsDao
@@ -23,7 +22,6 @@ class RepositoryImpl(
         return withContext(Dispatchers.IO){
             initTweets()
             if(text!=null&&text!=""){
-                Log.d("(Saquib)", "the text is "+text)
                 tweetsDao.getSearchResult(text)
             }
             else{
