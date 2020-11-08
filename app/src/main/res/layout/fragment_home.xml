@@ -11,6 +11,7 @@
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="#039BE5"
         android:elevation="10dp"
         app:layout_constraintBottom_toBottomOf="@id/tweets_list_card"
         app:layout_constraintEnd_toEndOf="@id/tweets_list_card"
