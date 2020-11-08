@@ -11,10 +11,11 @@
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:elevation="10dp"
+        app:layout_constraintBottom_toBottomOf="@id/tweets_list_card"
+        app:layout_constraintEnd_toEndOf="@id/tweets_list_card"
+        app:layout_constraintStart_toStartOf="@id/tweets_list_card"
+        app:layout_constraintTop_toTopOf="@id/tweets_list_card" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/search_box_card"
@@ -54,7 +55,8 @@
                 android:id="@+id/search_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="14dp"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="20dp"
                 android:text="Search"
                 android:textSize="14dp" />
         </LinearLayout>

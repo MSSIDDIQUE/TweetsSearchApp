@@ -11,8 +11,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.baymax.tweetssearchapp.R
 import com.baymax.tweetssearchapp.home_fragement.data.Tweet
-import com.baymax.tweetssearchapp.home_fragement.data.TweetsRemoteDataSourceImpl
-import com.baymax.weatherforcast.Model.Repository.RepositoryImpl
 import com.baymax.weatherforcast.ViewModel.HomeFramentViewModel
 import com.baymax.weatherforcast.ViewModel.HomeFramentViewModelFactory
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -38,7 +36,7 @@ class HomeFragment : Fragment(), KodeinAware{
         bindUi()
         search_button.setOnClickListener {
             progressBar.visibility = View.VISIBLE
-            viewModel.search(search_text_input.text.toString())
+            viewModel.search(search_text_input.text.toString().trim())
         }
     }
 
