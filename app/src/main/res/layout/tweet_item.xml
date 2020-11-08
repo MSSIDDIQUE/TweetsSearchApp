@@ -1,41 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="User name"
-        app:layout_constraintStart_toEndOf="@id/image_card"
-        app:layout_constraintTop_toTopOf="@id/image_card"
-        android:textSize="16dp"
-        android:textStyle="bold"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"/>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/image_card"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         app:cardBackgroundColor="#039BE5"
-        app:cardCornerRadius="150dp"
+        app:cardCornerRadius="125dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.cardview.widget.CardView
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_gravity="center"
-            app:cardCornerRadius="150dp">
+            app:cardCornerRadius="125dp">
 
             <ImageView
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:id="@+id/image"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:scaleType="centerCrop"
                 app:srcCompat="@drawable/icon_person" />
 
@@ -43,6 +32,91 @@
 
     </androidx.cardview.widget.CardView>
 
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="Name"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@id/image_card"
+        app:layout_constraintTop_toTopOf="@id/image_card" />
 
+    <TextView
+        android:id="@+id/favorite_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="12dp"
+        android:textStyle="bold"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintEnd_toStartOf="@id/favorite_icon"
+        app:layout_constraintTop_toTopOf="@id/favorite_icon"
+        app:layout_constraintBottom_toBottomOf="@id/favorite_icon"/>
+
+    <ImageView
+        android:id="@+id/favorite_icon"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/icon_heart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"/>
+
+    <ImageView
+        android:id="@+id/retweet_icon"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/icon_views"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/favorite_icon"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp"/>
+
+    <TextView
+        android:id="@+id/retweet_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="12dp"
+        android:textStyle="bold"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintEnd_toStartOf="@id/retweet_icon"
+        app:layout_constraintTop_toTopOf="@id/retweet_icon"
+        app:layout_constraintBottom_toBottomOf="@id/retweet_icon"/>
+
+    <TextView
+        android:id="@+id/user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="35dp"
+        android:text="User name"
+        android:textSize="14dp"
+        android:textColor="#808080"
+        app:layout_constraintStart_toEndOf="@id/image_card"
+        app:layout_constraintTop_toTopOf="@id/image_card" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:text="description"
+        android:textSize="16dp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/image_card"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

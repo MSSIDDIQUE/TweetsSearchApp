@@ -1,15 +1,23 @@
 package com.baymax.weatherforcast.ViewModel
 
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.liveData
+import androidx.lifecycle.*
 import com.baymax.weatherforcast.Model.Repository.Repository
 import kotlinx.coroutines.Dispatchers
 
 class HomeFramentViewModel(private val repo: Repository):ViewModel() {
-    val tweets by lazy {
+    val text : MutableLiveData<String> = MutableLiveData()
+    val tweets = text.switchMap{
         liveData(Dispatchers.IO) {
-            val data = repo.getWeather()
+            val data = repo.fetchTweets(it)
             emitSource(data)
         }
+    }
+
+
+    init {
+        text.value = ""
+    }
+    fun search(searchText:String){
+        text.value = searchText
     }
 }

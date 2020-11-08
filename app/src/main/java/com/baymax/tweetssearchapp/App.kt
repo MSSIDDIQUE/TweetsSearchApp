@@ -5,6 +5,7 @@ import com.baymax.tweetssearchapp.api.TweetsApiService
 import com.baymax.tweetssearchapp.data.AppDatabase
 import com.baymax.tweetssearchapp.home_fragement.data.TweetsRemoteDataSource
 import com.baymax.tweetssearchapp.home_fragement.data.TweetsRemoteDataSourceImpl
+import com.baymax.tweetssearchapp.home_fragement.ui.HomeFragment
 import com.baymax.weatherforcast.Model.Network.ConnectivityInterceptor
 import com.baymax.weatherforcast.Model.Network.ConnectivityInterceptorImpl
 import com.baymax.weatherforcast.Model.Repository.Repository

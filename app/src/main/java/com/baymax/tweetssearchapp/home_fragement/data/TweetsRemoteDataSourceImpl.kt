@@ -10,15 +10,15 @@ class TweetsRemoteDataSourceImpl(
     private val tweetsApiService: TweetsApiService
 ) : TweetsRemoteDataSource {
 
-    private val _downloadedWeather = MutableLiveData<List<Tweet>>()
-    override val downloadedWeather: LiveData<List<Tweet>>
-        get() = _downloadedWeather
+    private val _downlaodedTweets = MutableLiveData<List<Tweet>>()
+    override val downlaodedTweets: LiveData<List<Tweet>>
+        get() = _downlaodedTweets
 
     override suspend fun fetchTweets() {
         try {
             val fetchedTweets = tweetsApiService.getWeather().await()
             if (fetchedTweets.success) {
-                _downloadedWeather.postValue(fetchedTweets.tweets)
+                _downlaodedTweets.postValue(fetchedTweets.tweets)
             }
         }
         catch (e: NoConnectivityException){

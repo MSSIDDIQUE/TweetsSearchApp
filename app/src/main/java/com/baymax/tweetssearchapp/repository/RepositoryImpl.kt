@@ -15,20 +15,25 @@ class RepositoryImpl(
     private val remoteDataSource: TweetsRemoteDataSource,
 ) : Repository {
     init {
-        remoteDataSource.downloadedWeather.observeForever {latestWeatherReports->
-            persistLatestWeatherReports(latestWeatherReports)
-            Log.d("(Saquib)", "The data is successfully saved into the database")
+        remoteDataSource.downlaodedTweets.observeForever {latestTweets->
+            persistTweets(latestTweets)
         }
     }
-    override suspend fun getWeather(): LiveData<List<Tweet>> {
+    override suspend fun fetchTweets(text:String?): LiveData<List<Tweet>> {
         return withContext(Dispatchers.IO){
-            initWeatherData()
-            Log.d("(Saquib)", "getting the latest data from the database")
-            tweetsDao.getAllRecords()
+            initTweets()
+            if(text!=null&&text!=""){
+                Log.d("(Saquib)", "the text is "+text)
+                tweetsDao.getSearchResult(text)
+            }
+            else{
+                tweetsDao.getAllRecords()
+            }
+
         }
     }
 
-    private fun persistLatestWeatherReports(tweets: List<Tweet>){
+    private fun persistTweets(tweets: List<Tweet>){
         GlobalScope.launch(Dispatchers.IO) {
             for(i in 0..(tweets.size-1)){
                 if(i==0) {
@@ -41,8 +46,7 @@ class RepositoryImpl(
         }
     }
 
-    private suspend fun initWeatherData(){
-        val lastWeatherLocation = tweetsDao.getAllRecords().value
+    private suspend fun initTweets(){
             remoteDataSource.fetchTweets()
             return
     }

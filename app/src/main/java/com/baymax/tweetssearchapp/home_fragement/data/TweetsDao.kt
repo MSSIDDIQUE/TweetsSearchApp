@@ -14,6 +14,9 @@ interface TweetsDao {
         upsert(data)
     }
 
+    @Query("Select * from Tweets where text like '%' || :search || '%' ")
+    fun getSearchResult(search:String):LiveData<List<Tweet>>
+
     @Query("Select * from Tweets")
     fun getAllRecords():LiveData<List<Tweet>>
 

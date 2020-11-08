@@ -4,5 +4,5 @@ import androidx.lifecycle.LiveData
 import com.baymax.tweetssearchapp.home_fragement.data.Tweet
 
 interface Repository {
-    suspend fun getWeather():LiveData<List<Tweet>>
+    suspend fun fetchTweets(text:String?=null):LiveData<List<Tweet>>
 }
