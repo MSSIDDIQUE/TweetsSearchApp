@@ -1,9 +1,14 @@
 package com.baymax.tweetssearchapp.home_fragement.data
 
-import androidx.lifecycle.LiveData
-import com.baymax.tweetssearchapp.home_fragement.data.Tweet
+import com.baymax.tweetssearchapp.api.BaseDataSource
+import com.baymax.tweetssearchapp.api.TweetsApiService
 
-interface TweetsRemoteDataSource {
-    val downlaodedTweets: LiveData<List<Tweet>>
-    suspend fun fetchTweets()
+class TweetsRemoteDataSource(
+    private val tweetsApiService: TweetsApiService
+) : BaseDataSource() {
+
+    suspend fun fetchTweets() = getResult {
+        tweetsApiService.getTweets()
+    }
+
 }

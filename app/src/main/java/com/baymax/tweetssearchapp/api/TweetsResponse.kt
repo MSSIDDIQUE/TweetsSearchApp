@@ -1,4 +1,4 @@
-package com.baymax.tweetssearchapp
+package com.baymax.tweetssearchapp.api
 
 import com.baymax.tweetssearchapp.home_fragement.data.Tweet
 import com.google.gson.annotations.SerializedName

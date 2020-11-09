@@ -8,6 +8,9 @@ interface TweetsDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun upsert(data: Tweet)
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertAll(tweets : List<Tweet>)
+
     @Transaction
     fun updateRecord(data: Tweet) {
         deleteAllRecords()

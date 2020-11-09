@@ -1,11 +1,10 @@
 package com.baymax.weatherforcast.ViewModel
 
 import androidx.lifecycle.*
-import com.baymax.weatherforcast.Model.Repository.Repository
-import kotlinx.coroutines.CoroutineExceptionHandler
+import com.baymax.tweetssearchapp.home_fragement.ui.HomeFragmentRepository
 import kotlinx.coroutines.Dispatchers
 
-class HomeFramentViewModel(private val repo: Repository):ViewModel() {
+class HomeFramentViewModel(private val repo: HomeFragmentRepository):ViewModel() {
     val text : MutableLiveData<String> = MutableLiveData()
     val tweets = text.switchMap{
         liveData(Dispatchers.IO) {
