@@ -15,8 +15,7 @@ const val api_key = "5f3f95dcfb462c164ddfce910fffe503"
 interface TweetsApiService {
 
     @GET("tweets")
-    suspend fun getTweets(
-    ):Response<TweetsResponse>
+    suspend fun getTweets():Response<TweetsResponse>
 
     companion object{
         operator fun invoke(

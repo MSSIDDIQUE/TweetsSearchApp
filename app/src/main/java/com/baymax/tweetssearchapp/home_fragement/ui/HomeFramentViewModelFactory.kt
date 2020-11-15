@@ -2,7 +2,7 @@ package com.baymax.weatherforcast.ViewModel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.baymax.tweetssearchapp.home_fragement.ui.HomeFragmentRepository
+import com.baymax.tweetssearchapp.home_fragement.data.HomeFragmentRepository
 
 class HomeFramentViewModelFactory(
     private val repo: HomeFragmentRepository

@@ -6,7 +6,7 @@ import com.baymax.tweetssearchapp.data.AppDatabase
 import com.baymax.tweetssearchapp.home_fragement.data.TweetsRemoteDataSource
 import com.baymax.weatherforcast.Model.Network.ConnectivityInterceptor
 import com.baymax.weatherforcast.Model.Network.ConnectivityInterceptorImpl
-import com.baymax.tweetssearchapp.home_fragement.ui.HomeFragmentRepository
+import com.baymax.tweetssearchapp.home_fragement.data.HomeFragmentRepository
 import com.baymax.weatherforcast.ViewModel.HomeFramentViewModelFactory
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
